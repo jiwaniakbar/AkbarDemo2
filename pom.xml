@@ -51,12 +51,12 @@
             <artifactId>cdi-helpers</artifactId>
             <version>2.1</version>
         </dependency>
-        <!-- Uncomment this dependency to try Vaadin Charts
+        
         <dependency>
            <groupId>com.vaadin</groupId>
            <artifactId>vaadin-charts</artifactId>
            <version>4.0.0</version>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>org.vaadin.addon</groupId>
             <artifactId>v-leaflet</artifactId>
