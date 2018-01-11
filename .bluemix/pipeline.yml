@@ -14,6 +14,7 @@ stages:
     script: |-
       #!/bin/bash
       export JAVA_HOME=/opt/IBM/java8
+      mvn -Dvaadin.charts.developer.license=1851dcfe-266d-462f-9dc5-cf277de65022 package
       mvn -B package
 - name: Deploy
   inputs:

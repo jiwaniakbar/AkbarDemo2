@@ -69,11 +69,15 @@ public class CustomerForm extends AbstractForm<Customer> {
 
     // Prepare some basic field components that our bound to entity property
     // by naming convetion, you can also use PropertyId annotation
-    TextField firstName = new TextField("First name");
-    TextField lastName = new TextField("Last name");
-    DateField birthDate = new DateField("Birth day");
+    //*Akbar TextField firstName = new TextField("First name");
+    TextField engagementName = new TextField("Engagement Name");
+   //*Akbar TextField lastName = new TextField("Last name");
+    TextField description = new TextField("Description");
+    //*Akbar DateField birthDate = new DateField("Birth day");
+    DateField engagementDate = new DateField("Engagement Date");
     // Select to another entity, options are populated in the init method
-    NativeSelect<CustomerStatus> status = new NativeSelect("Status");
+    //*Akbar NativeSelect<CustomerStatus> status = new NativeSelect("Status");
+    NativeSelect<CustomerStatus> status = new NativeSelect("Engagement Type");
     RadioButtonGroup<Gender> gender = new RadioButtonGroup<>("Gender");
     TextField email = new TextField("Email");
 
@@ -85,15 +89,15 @@ public class CustomerForm extends AbstractForm<Customer> {
     protected Component createContent() {
         setStyleName(ValoTheme.LAYOUT_CARD);
 
-        Stream.of(firstName, lastName, email).forEach(t -> t.setWidth("100%"));
+        Stream.of(engagementName, description, email).forEach(t -> t.setWidth("100%"));
 
         return new MVerticalLayout(
                 new Header("Edit customer").setHeaderLevel(3),
                 new MFormLayout(
-                        firstName,
-                        lastName,
+                       engagementName,
+                        description,
                         email,
-                        birthDate,
+                        engagementDate,
                         gender,
                         status
                 ).withFullWidth(),

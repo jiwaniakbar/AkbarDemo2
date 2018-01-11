@@ -46,7 +46,7 @@ import org.vaadin.cdiviewmenu.ViewMenuUI;
  * </p>
  */
 @CDIUI("")
-@Title("Simple CRM")
+@Title("Akbar's First Bluemix App")
 public class AppUI extends ViewMenuUI {
 
     /**

@@ -161,11 +161,11 @@ public class CustomerListView extends MVerticalLayout implements View {
      */
     private void adjustTableColumns() {
         if (ScreenSize.getScreenSize() == ScreenSize.LARGE) {
-            customerListing.setColumns("firstName", "lastName", "email",
+            customerListing.setColumns("engagementName", "description", "email",
                     "status");
         } else {
             customerListing.removeAllColumns();
-            customerListing.addColumn(c -> c.getFirstName() + " " + c.getLastName())
+            customerListing.addColumn(c -> c.getEngagementName() + " " + c.getDescription())
                     .setCaption("Name");
             if (ScreenSize.getScreenSize() == ScreenSize.MEDIUM) {
                 customerListing.addColumn("email");
@@ -232,6 +232,7 @@ public class CustomerListView extends MVerticalLayout implements View {
         // As we display the editor differently in different devices,
         // close properly in each modes
         if (customerEditor.getParent() == mainContent) {
+        	
             mainContent.removeComponent(customerEditor);
         } else {
             AppUI.get().getContentLayout().

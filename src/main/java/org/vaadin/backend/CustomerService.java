@@ -92,8 +92,8 @@ public class CustomerService {
             for (String name : names) {
                 String[] split = name.split(" ");
                 Customer c = new Customer();
-                c.setFirstName(split[0]);
-                c.setLastName(split[1]);
+                c.setEngagementName(split[0]);
+                c.setDescription(split[1]);
                 c.setEmail(split[0].toLowerCase() + "@" + split[1].
                         toLowerCase() + ".com");
                 c.setStatus(CustomerStatus.values()[r.nextInt(CustomerStatus.
@@ -101,7 +101,7 @@ public class CustomerService {
                 LocalDate d = LocalDate.now();
                 int daysOld = 0 - r.nextInt(365 * 15 + 365 * 60);
                 d = d.plusDays(daysOld);
-                c.setBirthDate(d);
+                c.setEngagementDate(d);
 
                 c.setGender(r.nextDouble() < 0.7 ? Gender.Female : Gender.Male);
 

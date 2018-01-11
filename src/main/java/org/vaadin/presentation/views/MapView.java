@@ -81,8 +81,8 @@ public class MapView extends MVerticalLayout implements View {
                 LMarker marker = new LMarker(customer.getLocation());
                 marker.addClickListener(e -> {
                     Notification.show(
-                        "Customer: " + customer.getFirstName() + " " + customer.
-                        getLastName()
+                        "Customer: " + customer.getEngagementName() + " " + customer.
+                        getDescription()
                     );
                 });
                 worldMap.addComponent(marker);

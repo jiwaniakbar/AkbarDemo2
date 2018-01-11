@@ -40,7 +40,7 @@ import org.vaadin.viritin.label.Header;
 import org.vaadin.viritin.layouts.MHorizontalLayout;
 import org.vaadin.viritin.layouts.MMarginInfo;
 import org.vaadin.viritin.layouts.MVerticalLayout;
-
+//Uncommented Start Akbar
 import com.vaadin.addon.charts.Chart;
 import com.vaadin.addon.charts.model.ChartType;
 import com.vaadin.addon.charts.model.Configuration;
@@ -56,6 +56,7 @@ import com.vaadin.addon.charts.model.PlotOptionsPie;
 import com.vaadin.addon.charts.model.Stacking;
 import com.vaadin.addon.charts.model.VerticalAlign;
 import com.vaadin.addon.charts.model.XAxis;
+//Uncommented End Akbar
 import com.vaadin.cdi.CDIView;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
@@ -87,6 +88,7 @@ public class AnalyzeView extends MVerticalLayout implements View {
         addComponent(new RichText().withMarkDownResource("/charts.md"));
     }
 
+//Uncommented Start Akbar
     protected void renderCharts() {
 
         setMargin(new MMarginInfo(false, true));
@@ -150,8 +152,8 @@ public class AnalyzeView extends MVerticalLayout implements View {
             this.max = max;
         }
 
-        public static AgeGroup getAgeGroup(LocalDate birthDate) {
-            int age = LocalDate.now().getYear() - birthDate.getYear();
+        public static AgeGroup getAgeGroup(LocalDate engagementDate) {
+            int age = LocalDate.now().getYear() - engagementDate.getYear();
             for (AgeGroup g : AgeGroup.values()) {
                 if (age <= g.max && age > g.min) {
                     return g;
@@ -163,7 +165,7 @@ public class AnalyzeView extends MVerticalLayout implements View {
 
     private Chart getBasicChart(ChartType type) {
         Chart chart = new Chart(type);
-        // title from panel
+    //     title from panel
         chart.getConfiguration().setTitle("");
         return chart;
     }
@@ -176,8 +178,8 @@ public class AnalyzeView extends MVerticalLayout implements View {
             womenValues[i] = 0;
         }
         for (Customer c : customerData) {
-            if (c.getBirthDate() != null) {
-                AgeGroup g = AgeGroup.getAgeGroup(c.getBirthDate());
+            if (c.getEngagementDate() != null) {
+                AgeGroup g = AgeGroup.getAgeGroup(c.getEngagementDate());
                 if (c.getGender() == Gender.Female) {
                     womenValues[g.ordinal()]++;
                 } else {
@@ -251,4 +253,5 @@ public class AnalyzeView extends MVerticalLayout implements View {
 
         return wrapInPanel(chart, "Sales funnel");
     }
+//Uncommented End Akbar
 }

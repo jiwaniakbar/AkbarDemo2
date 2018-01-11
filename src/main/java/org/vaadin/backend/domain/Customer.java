@@ -41,7 +41,7 @@ import java.time.LocalDate;
         @NamedQuery(name="Customer.findAll",
                 query="SELECT c FROM Customer c"),
         @NamedQuery(name="Customer.findByName",
-                query="SELECT c FROM Customer c WHERE LOWER(c.firstName) LIKE :filter OR LOWER(c.lastName) LIKE :filter"),
+                query="SELECT c FROM Customer c WHERE LOWER(c.engagementName) LIKE :filter OR LOWER(c.description) LIKE :filter"),
 })
 @Entity
 public class Customer implements Serializable {
@@ -52,11 +52,11 @@ public class Customer implements Serializable {
 
     @Version int version;
 
-    private String firstName;
+    private String engagementName;
 
-    private String lastName;
+    private String description;
 
-    private LocalDate birthDate;
+    private LocalDate engagementDate;
 
     private CustomerStatus status;
 
@@ -118,8 +118,8 @@ public class Customer implements Serializable {
      *
      * @return the value of birthDate
      */
-    public LocalDate getBirthDate() {
-        return birthDate;
+    public LocalDate getEngagementDate() {
+        return engagementDate;
     }
 
     /**
@@ -127,8 +127,8 @@ public class Customer implements Serializable {
      *
      * @param birthDate new value of birthDate
      */
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
+    public void setEngagementDate(LocalDate engagementDate) {
+        this.engagementDate = engagementDate;
     }
 
     /**
@@ -136,8 +136,8 @@ public class Customer implements Serializable {
      *
      * @return the value of lastName
      */
-    public String getLastName() {
-        return lastName;
+    public String getDescription() {
+        return description;
     }
 
     /**
@@ -145,8 +145,8 @@ public class Customer implements Serializable {
      *
      * @param lastName new value of lastName
      */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     /**
@@ -154,8 +154,8 @@ public class Customer implements Serializable {
      *
      * @return the value of firstName
      */
-    public String getFirstName() {
-        return firstName;
+    public String getEngagementName() {
+        return engagementName;
     }
 
     /**
@@ -163,8 +163,8 @@ public class Customer implements Serializable {
      *
      * @param firstName new value of firstName
      */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setEngagementName(String engagementName) {
+        this.engagementName = engagementName;
     }
 
     public Gender getGender() {
